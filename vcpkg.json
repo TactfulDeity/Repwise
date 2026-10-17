@@ -1,0 +1,27 @@
+{
+  "name": "repwise",
+  "version": "0.1.0",
+  "dependencies": [
+    "sqlitecpp"
+  ],
+  "features": {
+    "cli": {
+      "description": "CLI dependencies",
+      "dependencies": [
+        "cli11"
+      ]
+    },
+    "gui": {
+      "description": "GUI dependencies"
+    },
+    "tests": {
+      "description": "Test dependencies",
+      "dependencies": [
+        "catch2"
+      ]
+    },
+    "tui": {
+      "description": "TUI dependencies"
+    }
+  }
+}

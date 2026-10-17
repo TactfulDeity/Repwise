@@ -1,0 +1,134 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+
+    {
+      "name": "core",
+      "inherits": "base",
+      "cacheVariables": {
+        "BUILD_CORE_TESTS": "ON",
+        "BUILD_CLI": "OFF",
+        "BUILD_TUI": "OFF",
+        "BUILD_GUI": "OFF",
+        "VCPKG_MANIFEST_FEATURES": "tests"
+      }
+    },
+
+    {
+      "name": "cli",
+      "inherits": "base",
+      "cacheVariables": {
+        "BUILD_CORE_TESTS": "ON",
+        "BUILD_CLI": "ON",
+        "BUILD_TUI": "OFF",
+        "BUILD_GUI": "OFF",
+        "VCPKG_MANIFEST_FEATURES": "tests;cli"
+      }
+    },
+
+    {
+      "name": "tui",
+      "inherits": "base",
+      "cacheVariables": {
+        "BUILD_CORE_TESTS": "ON",
+        "BUILD_CLI": "OFF",
+        "BUILD_TUI": "ON",
+        "BUILD_GUI": "OFF",
+        "VCPKG_MANIFEST_FEATURES": "tests;tui"
+      }
+    },
+
+    {
+      "name": "gui",
+      "inherits": "base",
+      "cacheVariables": {
+        "BUILD_CORE_TESTS": "ON",
+        "BUILD_CLI": "OFF",
+        "BUILD_TUI": "OFF",
+        "BUILD_GUI": "ON",
+        "VCPKG_MANIFEST_FEATURES": "tests;gui"
+      }
+    },
+
+    {
+      "name": "all",
+      "inherits": "base",
+      "cacheVariables": {
+        "BUILD_CORE_TESTS": "ON",
+        "BUILD_CLI": "ON",
+        "BUILD_TUI": "ON",
+        "BUILD_GUI": "ON",
+        "VCPKG_MANIFEST_FEATURES": "tests;cli;tui;gui"
+      }
+    }
+  ],
+
+  "buildPresets": [
+    {
+      "name": "core",
+      "configurePreset": "core"
+    },
+    {
+      "name": "cli",
+      "configurePreset": "cli"
+    },
+    {
+      "name": "tui",
+      "configurePreset": "tui"
+    },
+    {
+      "name": "gui",
+      "configurePreset": "gui"
+    },
+    {
+      "name": "all",
+      "configurePreset": "all"
+    }
+  ],
+
+  "testPresets": [
+    {
+      "name": "core",
+      "configurePreset": "core",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "cli",
+      "configurePreset": "cli",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "tui",
+      "configurePreset": "tui",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "gui",
+      "configurePreset": "gui",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "all",
+      "configurePreset": "all",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}
