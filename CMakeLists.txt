@@ -34,6 +34,9 @@ if(BUILD_GUI AND NOT "gui" IN_LIST VCPKG_MANIFEST_FEATURES)
         "BUILD_GUI=ON requires VCPKG_MANIFEST_FEATURES to include 'gui'.")
 endif()
 
+enable_testing()
+include(CTest)
+
 add_subdirectory(core)
 
 if(BUILD_CLI)

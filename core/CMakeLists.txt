@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.25)
 
 find_package(SQLiteCpp CONFIG REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
 
 add_library(core STATIC
     src/main.cpp
 )
 
 target_link_libraries(core PRIVATE
-    SQLiteCpp::SQLiteCpp
+    nlohmann_json::nlohmann_json
+    SQLiteCpp
 )
 
 target_include_directories(core PUBLIC

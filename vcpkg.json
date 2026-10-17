@@ -2,7 +2,8 @@
   "name": "repwise",
   "version": "0.1.0",
   "dependencies": [
-    "sqlitecpp"
+    "sqlitecpp",
+    "nlohmann-json"
   ],
   "features": {
     "cli": {
