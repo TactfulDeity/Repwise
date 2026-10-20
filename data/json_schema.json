@@ -1,0 +1,70 @@
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profile",
+  "description": "A digital representation of a person",
+  "type": "object",
+  "properties": {
+    "name": {
+      "descrpition": "human readible identifier for differentiation",
+      "type": "string"
+    },
+    "height": {
+      "description:": "height stored in centimeters",
+      "type": "integer",
+      "exclusiveMinimum": 0
+    },
+    "weight": {
+      "description": "weight stored in grams",
+      "type": "integer",
+      "exclusiveMinimum": 0
+    },
+    "log": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "required": [ "name", "height", "weight" ],
+  "$defs":
+  {
+    "entry": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "description": "the date stored as a string in ISO 8601 format",
+          "type": "string",
+          "pattern": ""
+        },
+        "resting_hr": {
+          "description": "resting heart rate in beats per minute",
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "hrv": {
+          "description": "heart rate variability in milliseconds",
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "sleep_min": {
+          "description": "the number of minutes slept",
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "sleep_quality": {
+          "description": "sleep score 0 and 1",
+          "type": "number",
+          "exclusiveMinimum": 0.0,
+          "exclusiveMaximum": 1.0
+        },
+        "readiness": {
+          "description": "Subjective wellness score between 0 and 1",
+          "type": "number",
+          "exclusiveMinimum": 0.0,
+          "exclusiveMaximum": 1.0
+        }
+      }
+    }
+  }
+}
